@@ -14,14 +14,14 @@ calcBtn.addEventListener('click', function() {
   }
 
   // 計算
-  // 外接円の直径 = 辺の長さ × 2
-  const outer = side * 2;
+  // 外接円の直径 = 対辺/√3*2
+  const outer = side / Math.sqrt(3) * 2;
 
-  // 内接円の直径 = 辺の長さ × √3
-  const inner = side * Math.sqrt(3);
+  // 内接円の直径 
+  const inner = side;
 
   // 結果を小数点第2位まで表示
-  document.getElementById('outer').textContent = outer.toFixed(2) + ' mm';
-  document.getElementById('inner').textContent = inner.toFixed(2) + ' mm';
+  document.getElementById('outer').textContent = outer.toFixed(4) + ' mm';
+  document.getElementById('inner').textContent = inner.toFixed(4) + ' mm';
 
 });
