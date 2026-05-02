@@ -27,26 +27,66 @@ h1 {
   text-align: center;
   font-size: 22px;
   color: #2d3748;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-.input-area {
+/* タブ */
+.tabs {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #718096;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  color: #4299e1;
+  border-bottom: 3px solid #4299e1;
+  font-weight: bold;
+}
+
+.tab-btn:hover {
+  color: #4299e1;
+}
+
+/* タブコンテンツ */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* 入力エリア */
+.input-area {
+  margin-bottom: 16px;
 }
 
 label {
   display: block;
   font-size: 14px;
   color: #4a5568;
-  margin-bottom: 12px;
-  width: 100%;
+  margin-bottom: 8px;
 }
 
 .input-area {
+  display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 input[type="number"] {
@@ -68,7 +108,8 @@ input[type="number"]:focus {
   color: #718096;
 }
 
-button {
+/* ボタン */
+.calc-btn {
   width: 100%;
   padding: 14px;
   background-color: #4299e1;
@@ -82,14 +123,15 @@ button {
   margin-bottom: 24px;
 }
 
-button:hover {
+.calc-btn:hover {
   background-color: #3182ce;
 }
 
-button:active {
+.calc-btn:active {
   background-color: #2b6cb0;
 }
 
+/* 結果エリア */
 .result-area {
   display: flex;
   flex-direction: column;

@@ -3,32 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>六角形 直径計算</title>
+  <title>図形 直径計算</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
-    <h1>六角形 直径計算</h1>
+    <h1>図形 直径計算</h1>
 
-    <div class="input-area">
-      <label for="side">対辺の長さを入力</label>
-      <input type="number" id="side" placeholder="例：10" />
-      <span class="unit">mm</span>
+    <!-- タブ -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="hexagon">六角形</button>
+      <button class="tab-btn" data-tab="square">四角形</button>
     </div>
 
-    <button id="calcBtn">計算する</button>
-
-    <div class="result-area" id="resultArea">
-      <div class="result-item">
-        <span class="result-label">外接円の直径</span>
-        <span class="result-value" id="outer">-</span>
+    <!-- 六角形 -->
+    <div class="tab-content active" id="hexagon">
+      <div class="input-area">
+        <label>辺の長さ</label>
+        <input type="number" id="hex-side" placeholder="例：10" />
+        <span class="unit">mm</span>
       </div>
-      <div class="result-item">
-        <span class="result-label">内接円の直径</span>
-        <span class="result-value" id="inner">-</span>
+      <button class="calc-btn" id="hexCalcBtn">計算する</button>
+      <div class="result-area" id="hexResult">
+        <div class="result-item">
+          <span class="result-label">外接円の直径（頂点→頂点）</span>
+          <span class="result-value" id="hex-outer">-</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">内接円の直径（辺→辺）</span>
+          <span class="result-value" id="hex-inner">-</span>
+        </div>
       </div>
     </div>
+
+    <!-- 四角形 -->
+    <div class="tab-content" id="square">
+      <div class="input-area">
+        <label>対角線の長さ</label>
+        <input type="number" id="sq-diagonal" placeholder="例：10" />
+        <span class="unit">mm</span>
+      </div>
+      <div class="input-area">
+        <label>面取り（C面）※なしは0</label>
+        <input type="number" id="sq-chamfer" placeholder="例：1" value="0" />
+        <span class="unit">mm</span>
+      </div>
+      <button class="calc-btn" id="sqCalcBtn">計算する</button>
+      <div class="result-area" id="sqResult">
+        <div class="result-item">
+          <span class="result-label">外接円の直径</span>
+          <span class="result-value" id="sq-outer">-</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">内接円の直径</span>
+          <span class="result-value" id="sq-inner">-</span>
+        </div>
+        <div class="result-item" id="sq-chamfer-result-area">
+          <span class="result-label">面取り後の外接円の直径</span>
+          <span class="result-value" id="sq-chamfer-outer">-</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
