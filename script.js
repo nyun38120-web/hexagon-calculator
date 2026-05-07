@@ -4,15 +4,15 @@
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
-tabBtns.forEach(function(btn) {
-  btn.addEventListener('click', function() {
+tabBtns.forEach(function (btn) {
+  btn.addEventListener('click', function () {
 
     // タブボタンの切り替え
-    tabBtns.forEach(function(b) { b.classList.remove('active'); });
+    tabBtns.forEach(function (b) { b.classList.remove('active'); });
     btn.classList.add('active');
 
     // コンテンツの切り替え
-    tabContents.forEach(function(c) { c.classList.remove('active'); });
+    tabContents.forEach(function (c) { c.classList.remove('active'); });
     document.getElementById(btn.dataset.tab).classList.add('active');
 
   });
@@ -24,7 +24,7 @@ tabBtns.forEach(function(btn) {
 // ==================
 const hexCalcBtn = document.getElementById('hexCalcBtn');
 
-hexCalcBtn.addEventListener('click', function() {
+hexCalcBtn.addEventListener('click', function () {
 
   // 入力値を取得
   const side = parseFloat(document.getElementById('hex-side').value);
@@ -53,7 +53,7 @@ hexCalcBtn.addEventListener('click', function() {
 // ==================
 const sqCalcBtn = document.getElementById('sqCalcBtn');
 
-sqCalcBtn.addEventListener('click', function() {
+sqCalcBtn.addEventListener('click', function () {
 
   // 入力値を取得
   const diagonal = parseFloat(document.getElementById('sq-diagonal').value);
@@ -71,23 +71,28 @@ sqCalcBtn.addEventListener('click', function() {
     return;
   }
 
-  // 外接円の直径 = 対角線の長さ
-  const outer = diagonal;
+  // 一辺の長さ
+  const side = diagonal;
 
-  // 一辺の長さ = 対角線 / √2
-  const side = diagonal / Math.sqrt(2);
+  // 外接円の直径 = √2 × a
+  const outer = Math.sqrt(2) * side;
+
+  // 外接円の半径 R = √2 × a / 2
+  const R = outer / 2;
+
+  // 外接円の面積 = π × R²
+  const outerArea = Math.PI * Math.pow(R, 2);
 
   // 内接円の直径 = 一辺の長さ
   const inner = side;
 
   // 面取り後の外接円の直径
-  // 面取りC後の頂点から中心までの距離を計算
   const chamferOuter = chamfer === 0
     ? outer
     : Math.sqrt(
-        Math.pow(side / 2 - chamfer, 2) +
-        Math.pow(side / 2 - chamfer, 2)
-      ) * 2;
+      Math.pow(side / 2 - chamfer, 2) +
+      Math.pow(side / 2 - chamfer, 2)
+    ) * 2;
 
   // 結果を小数点第4位まで表示
   document.getElementById('sq-outer').textContent = outer.toFixed(4) + ' mm';

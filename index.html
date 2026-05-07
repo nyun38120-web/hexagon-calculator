@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>図形 直径計算</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="container">
@@ -40,7 +42,7 @@
     <!-- 四角形 -->
     <div class="tab-content" id="square">
       <div class="input-area">
-        <label>対角線の長さ</label>
+        <label>一辺の長さ</label>
         <input type="number" id="sq-diagonal" placeholder="例：10" />
         <span class="unit">mm</span>
       </div>
@@ -50,6 +52,7 @@
         <span class="unit">mm</span>
       </div>
       <button class="calc-btn" id="sqCalcBtn">計算する</button>
+
       <div class="result-area" id="sqResult">
         <div class="result-item">
           <span class="result-label">外接円の直径</span>
@@ -70,4 +73,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
